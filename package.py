@@ -4,22 +4,22 @@ name = 'turret_lib'
 
 version = '1.1.17'
 
-authors = [ 'ben.skinner',
-            'daniel.flood'
-]
+authors = ['ben.skinner',
+           'daniel.flood'
+           ]
 
 requires = ['libzmq-4',
-            'cppzmq-4',
-            'boost-1.55'
-]
+            'boost']
 
 build_requires = [
     'cmake-3.2',
 ]
 
-variants = [['platform-linux', 'arch-x86_64']]
+variants = []
+
 
 def commands():
     env.LIBTURRET_ROOT.set("{this.root}")
     env.LD_LIBRARY_PATH.append('{root}/lib')
+    env.PATH.append('{root}/lib')
     env.TURRET_RETRIES.set("1")

@@ -35,9 +35,9 @@ namespace turret_client {
 
     // -- Public
     turretLogger* turretLogger::Instance() {
-        if(m_instance == nullptr) {
+        if(m_instance == static_cast<void*>(nullptr)) {
             std::lock_guard<std::mutex> lock(m_mutex);
-            if(m_instance == nullptr) {
+            if(m_instance == static_cast<void*>(nullptr)) {
                 m_instance = new turretLogger();
             }
         }
